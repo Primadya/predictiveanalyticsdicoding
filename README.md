@@ -15,9 +15,9 @@ Pengembangan model prediksi kualitas buah pisang memiliki potensi signifikan unt
 
 Berdasarkan latar belakang yang telah dijelaskan, berikut ini adalah perincian masalah yang dapat diatasi dalam proyek ini:
 
-- Bagaimana cara mengembangkan model machine learning untuk memprediksi kualitas pisang berdasarkan data visual dan sensorik?
-- Model seperti apa yang mampu mencapai tingkat akurasi prediksi tertinggi?
-- Bagaimana penerapan model ini dapat mendukung petani dan distributor dalam meningkatkan kualitas serta nilai ekonomi dari buah pisang?
+1. Bagaimana cara mengembangkan model machine learning untuk memprediksi kualitas pisang berdasarkan data visual dan sensorik?
+2. Model seperti apa yang mampu mencapai tingkat akurasi prediksi tertinggi?
+3. Bagaimana penerapan model ini dapat mendukung petani dan distributor dalam meningkatkan kualitas serta nilai ekonomi dari buah pisang?
 
 ### Goals
 
@@ -62,7 +62,6 @@ Melakukan analisis data secara mendalam melalui univariate dan multivariate anal
 | Usability | 10.00 |
 
 Berikut informasi pada dataset: 
-Data yang digunakan dalam pembuatan model merupakan data primer, data ini didapat dari sebuah perusahaan pertanian Amerika, yang disediakan secara publik di kaggle dengan nama datasets yaitu: _Apple Quality_
 
  | Size | Weight | Sweetness | Softness | HarvestTime | Ripeness | Acidity | Quality |
  | ------ |------ | ------ | ------ | ------ |------ | ------ |------ |
@@ -71,6 +70,9 @@ Data yang digunakan dalam pembuatan model merupakan data primer, data ini didapa
  | -0.357607 |1.483176 | 1.568452 |-2.645145 | -0.647267 |3.090643	| 1.427322  |bad |
  | -0.868524 |1.566201 | 1.889605 |-1.273761 | -1.006278 |1.873001	| 0.477862  |good |
  | 0.651825 |1.319199 | -0.022459 |-1.209709 | -1.430692 |1.078345	| 2.812442  |good |
+
+
+ 
 Tabel 1.
 
 Tabel 1 menyajikan hasil *Exploratory Data Analysis* (EDA) dari deskripsi variabel. Dataset ini telah melalui proses *preprocessing* awal, termasuk pembersihan dan normalisasi.
