@@ -1,9 +1,17 @@
 # Laporan Proyek Machine Learning - Nauval Dwi Primadya
 
+<div align="justify">
+
+
+   
 ## Domain Proyek
 Domain yang dipilih untuk proyek *machine learning* ini adalah **Pertanian**, dengan judul **Predictive Analytics: Kualitas Buah Pisang**
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
+
+![Foto Buah Pisang](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/buahpisang.jpg)
+
+
+
 Indonesia merupakan salah satu produsen pisang utama di Asia Tenggara dengan produksi tahunan yang mencapai sekitar 8 juta ton, menjadikannya komoditas pertanian bernilai tinggi yang memberikan kontribusi penting terhadap perekonomian nasional. Pisang memiliki nilai ekonomis yang besar bagi petani lokal, namun industri ini menghadapi tantangan signifikan dalam menjaga mutu produk. Mutu pisang dapat mengalami penurunan akibat sejumlah faktor, seperti ukuran buah yang tidak sesuai standar, tingkat kematangan yang tidak optimal, dan tekstur yang tidak memenuhi kualitas ideal. Penurunan mutu ini dapat menimbulkan dampak ekonomi yang merugikan, baik bagi petani maupun distributoraatan [[1](https://journal.ipb.ac.id/index.php/jagbi/article/view/36753)].
 Predictive analytics dalam sektor pisang menunjukkan potensi besar dalam meningkatkan nilai komoditas ini. Teknologi ini dapat mendukung petani dengan meningkatkan kualitas serta jumlah hasil panen, yang pada akhirnya dapat meningkatkan pendapatan mereka. Selain itu, distributor diuntungkan melalui pengurangan risiko kerugian dan peningkatan efisiensi dalam manajemen rantai pasokan. Dari sisi konsumen, teknologi ini memungkinkan akses terhadap pisang berkualitas tinggi dengan harga yang lebih stabil. 
 
@@ -15,9 +23,9 @@ Pengembangan model prediksi kualitas buah pisang memiliki potensi signifikan unt
 
 Berdasarkan latar belakang yang telah dijelaskan, berikut ini adalah perincian masalah yang dapat diatasi dalam proyek ini:
 
-1. Bagaimana cara mengembangkan model machine learning untuk memprediksi kualitas pisang berdasarkan data visual dan sensorik?
-2. Model seperti apa yang mampu mencapai tingkat akurasi prediksi tertinggi?
-3. Bagaimana penerapan model ini dapat mendukung petani dan distributor dalam meningkatkan kualitas serta nilai ekonomi dari buah pisang?
+1.  Bagaimana cara mengembangkan model machine learning untuk memprediksi kualitas pisang berdasarkan data visual dan sensorik?
+2.  Model seperti apa yang mampu mencapai tingkat akurasi prediksi tertinggi?
+3.  Bagaimana penerapan model ini dapat mendukung petani dan distributor dalam meningkatkan kualitas serta nilai ekonomi dari buah pisang?
 
 ### Goals
 
@@ -38,13 +46,15 @@ Melakukan analisis data secara mendalam melalui univariate dan multivariate anal
 - Melakukan pembersihan data (_data cleaning_) dan normalisasi data untuk memastikan prediksi yang optimal.
 - Mengembangkan beberapa variasi model machine learning untuk membandingkan performa dan menentukan model terbaik dalam memprediksi kualitas pisang. diantaranya adalah :
     * Random Forest
-      Random forest adalah salah satu metode machine learning yang digunakan untuk tugas klasifikasi dan regresi [[2]()]. Metode ini bekerja dengan menggabungkan beberapa pohon keputusan untuk meningkatkan akurasi dan mengurangi masalah overfitting. Random forest cukup populer karena kemudahan implementasinya, kemampuannya mengatasi ketidakseimbangan data, serta penerapannya pada klasifikasi dengan banyak kelas (multiclass).
-    * Gradient Boosting3
-    * Support Vector Machine4
+      Random forest adalah salah satu metode machine learning yang digunakan untuk tugas klasifikasi dan regresi [[2](https://repository.uinjkt.ac.id/dspace/handle/123456789/55034)]. Metode ini bekerja dengan menggabungkan beberapa pohon keputusan untuk meningkatkan akurasi dan mengurangi masalah overfitting. Random forest cukup populer karena kemudahan implementasinya, kemampuannya mengatasi ketidakseimbangan data, serta penerapannya pada klasifikasi dengan banyak kelas (multiclass).
+    * Gradient Boosting
+      Gradient boosting adalah teknik pembelajaran mesin yang sangat efektif dalam meningkatkan kinerja model klasifikasi dan regresi. Teknik ini bekerja dengan menggabungkan beberapa pohon keputusan kecil yang diperbaiki secara iteratif untuk memperoleh model akhir yang lebih akurat. Gradient boosting telah digunakan dalam berbagai aplikasi, termasuk prediksi keberhasilan telemarketing, deteksi penyakit, dan klasifikasi aktivitas fisik [[3](https://ejournal3.undip.ac.id/index.php/gaussian/article/view/31335)].
+    * Support Vector Machine
+      Support Vector Machine (SVM) adalah algoritma pembelajaran terarah yang digunakan untuk tugas klasifikasi dan regresi. SVM bekerja dengan mencari garis atau hiperseperti yang memaksimalkan jarak antara data dari setiap kelas dalam ruang N-dimensi2. SVM dikenal karena kemampuannya dalam mengatasi masalah klasifikasi linear dan non-linear dengan menggunakan fungsi kernel, seperti kernel linear, polynomial, radial basis function (RBF), atau sigmoid [[4](https://jurnal.umk.ac.id/index.php/ijtis/article/download/7530/pdf)].
     * K-Nearest Neighbors
-      K-Nearest Neighbor (KNN) adalah salah satu algoritma machine learning yang digunakan dalam tugas klasifikasi dan regresi [[5]()]. Pendekatan ini dilakukan dengan mencari sejumlah k titik data terdekat dengan data yang ingin diklasifikasikan atau diregresikan. Selanjutnya, KNN memilih kelas atau nilai regresi yang paling sering muncul di antara k titik data tersebut. KNN dikenal karena kesederhanaannya dalam implementasi dan mampu memberikan hasil yang memuaskan, terutama pada dataset yang berukuran relatif kecil [[6]()].
+      K-Nearest Neighbor (KNN) adalah salah satu algoritma machine learning yang digunakan dalam tugas klasifikasi dan regresi. Pendekatan ini dilakukan dengan mencari sejumlah k titik data terdekat dengan data yang ingin diklasifikasikan atau diregresikan. Selanjutnya, KNN memilih kelas atau nilai regresi yang paling sering muncul di antara k titik data tersebut. KNN dikenal karena kesederhanaannya dalam implementasi dan mampu memberikan hasil yang memuaskan, terutama pada dataset yang berukuran relatif kecil [[5](https://journal.ugm.ac.id/ijccs/article/view/65176)].
     * Logistic Regression 
-      merupakan salah satu metode statistika yang digunakan untuk memprediksi hasil biner dari suatu variabel dependen berdasarkan satu atau lebih variabel independen. Pendekatan ini telah  menjadi  sangat  populer  dalam  analisis  data  yang  melibatkan  variabel  kategorial  dan  memiliki penerapan yang luas di berbagai bidang disiplin ilmu, termasuk ekonomi, kedokteran, dan ilmu sosial [[7](https://core.ac.uk/download/pdf/327105237.pdf)]
+      merupakan salah satu metode statistika yang digunakan untuk memprediksi hasil biner dari suatu variabel dependen berdasarkan satu atau lebih variabel independen. Pendekatan ini telah  menjadi  sangat  populer  dalam  analisis  data  yang  melibatkan  variabel  kategorial  dan  memiliki penerapan yang luas di berbagai bidang disiplin ilmu, termasuk ekonomi, kedokteran, dan ilmu sosial [[6](https://core.ac.uk/download/pdf/327105237.pdf)]
 
 ## Data Understanding
 ### EDA - Deskripsi Variabel
@@ -56,23 +66,23 @@ Melakukan analisis data secara mendalam melalui univariate dan multivariate anal
 | Title | Banana Quality |
 | Source | [Kaggle](https://www.kaggle.com/datasets/l3llff/banana) |
 | Maintainer | [l3LlFF ](https://www.kaggle.com/l3llff) |
-| License | [Apache 2.0] (https://www.apache.org/licenses/LICENSE-2.0) |
+| License | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
 | Visibility | Publik |
 | Tags | _Earth and Nature, Education, Food, Data Visualization, Exploratory Data Analysis, Binary Classification_ |
 | Usability | 10.00 |
 
 Berikut informasi pada dataset: 
 
+
  | Size | Weight | Sweetness | Softness | HarvestTime | Ripeness | Acidity | Quality |
  | ------ |------ | ------ | ------ | ------ |------ | ------ |------ |
- | -1.924968 |0.468078 | 3.077832 |-1.472177 | 0.294799 |2.435570	| 0.271290  |good |
- | -2.409751 |0.486870 | 0.346921 |-2.495099 | -0.892213 | 2.067549 | 0.307325  |good |
- | -0.357607 |1.483176 | 1.568452 |-2.645145 | -0.647267 |3.090643	| 1.427322  |bad |
- | -0.868524 |1.566201 | 1.889605 |-1.273761 | -1.006278 |1.873001	| 0.477862  |good |
- | 0.651825 |1.319199 | -0.022459 |-1.209709 | -1.430692 |1.078345	| 2.812442  |good |
+ | -1.924968 |0.468078 | 3.077832 |-1.472177 | 0.294799 |2.435570	| 0.271290  |Good |
+ | -2.409751 |0.486870 | 0.346921 |-2.495099 | -0.892213 | 2.067549 | 0.307325  |Good |
+ | -0.357607 |1.483176 | 1.568452 |-2.645145 | -0.647267 |3.090643	| 1.427322  |Good |
+ | -0.868524 |1.566201 | 1.889605 |-1.273761 | -1.006278 |1.873001	| 0.477862  |Good |
+ | 0.651825 |1.319199 | -0.022459 |-1.209709 | -1.430692 |1.078345	| 2.812442  |Good |
 
 
- 
 Tabel 1.
 
 Tabel 1 menyajikan hasil *Exploratory Data Analysis* (EDA) dari deskripsi variabel. Dataset ini telah melalui proses *preprocessing* awal, termasuk pembersihan dan normalisasi.
@@ -81,7 +91,7 @@ Tabel 1 menyajikan hasil *Exploratory Data Analysis* (EDA) dari deskripsi variab
 - Dataset terdiri atas 8000 sampel dan 8 fitur.
 - Dari total fitur, 7 memiliki tipe data float64, sedangkan 1 lainnya bertipe object.
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
+### Variabel-variabel pada dataset adalah sebagai berikut:
 Informasi dari dataframe diatas adalah sebagai berikut, yang terdiri dari 8 kolom. 
 
 - **Size**: ukuran buah
@@ -97,11 +107,11 @@ pada label `Quality` dirubah menjadi `label` agar memudahkan dalam pengolahan da
 
 ### EDA - Univariate Analysis
 
-![Analisis Univariat (Data Kategori)](https://i.ibb.co/0MRrJCC/jumlah-kualitas-datasets.png)
+![Analisis Univariat (Data Kategori)](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%201.png)
 
 Gambar 1.1. Analisis Univariat (Data Kategori) 
 
-![Univariate Analysis](https://i.ibb.co/V2mQ2dK/EDA-Univariate.png)
+![Univariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2012.png)
 
 Gambar 1.2. Analisis Univariat (Data Numerik) 
 
@@ -121,12 +131,12 @@ Berdasarkan pola distribusi ini, dapat disimpulkan bahwa dataset telah dinormali
 
 ### EDA - Multivariate Analysis
 
-![Multivariate Analysis](https://i.ibb.co/yNHmpNZ/EDA-MULTIVARIATE.png)
+![Multivariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2021.png)
 
 
 Gambar 2.1. Analisis Multivariat
 
-![Multivariate Analysis](https://i.ibb.co/WBQ5gPy/Matrix-corelasi.png)
+![Multivariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2022.png)
 
 
 Gambar 2.2. Analisis Matriks Korelasi
@@ -205,6 +215,9 @@ Di bawah ini adalah hasil *accuracy* dari lima model yang digunakan dalam proyek
 | Gradient Boosting            | 0.95     |
 | Logistic Regression          | 0.87     |
 
+
+![Plot Akurasi](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%203.png)
+
 Analisis Hasil:
 
 - Support Vector Machine (SVM) memiliki akurasi tertinggi di antara semua model yang diuji, mencapai 0.99. Ini menunjukkan bahwa SVM memiliki kemampuan yang sangat baik dalam mengidentifikasi pola dalam dataset dan memisahkan kelas dengan margin yang optimal.
@@ -215,9 +228,15 @@ Analisis Hasil:
 
 Secara keseluruhan, hasil ini menunjukkan bahwa Support Vector Machine (SVM) adalah model dengan akurasi tertinggi dalam proyek ini, diikuti oleh KNN dan Random Forest. Pemilihan model yang optimal, bagaimanapun, harus mempertimbangkan selain akurasi, juga metrik lain seperti precision, recall, dan F1 score, serta analisis lebih lanjut terhadap karakteristik dataset.
 
-**---Ini adalah bagian akhir laporan---**
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
 
+## Referensi
+1. [Aurelia, R., Kurniati, D., & Hutajulu, J. P. (2022). Daya Saing Ekspor Pisang Indonesia Di Negara Tujuan Ekspor Periode 2000-2019. Jurnal Agribisnis Indonesia (Journal of Indonesian Agribusiness), 10(2), 335-349.](https://journal.ipb.ac.id/index.php/jagbi/article/view/36753)
+2. [Fadilah, L. (2018). Klasifikasi Random Forest pada data imbalanced (Bachelor's thesis, Fakultas Sains dan Teknologi UIN Syarif Hidayatullah Jakarta).](https://repository.uinjkt.ac.id/dspace/handle/123456789/55034)
+3. [Suryana, S. E., Warsito, B., & Suparti, S. (2021). Penerapan Gradient Boosting Dengan Hyperopt Untuk Memprediksi Keberhasilan Telemarketing Bank. Jurnal Gaussian, 10(4), 617-623.](https://ejournal3.undip.ac.id/index.php/gaussian/article/view/31335)
+4. [Handayani, P. K. (2021). Penerapan Algoritma Support Vector Machine (Svm) Untuk Analisis Pola Klasifikasi Pada Parkinson’S Dataset. Indonesian Journal of Technology, Informatics and Science (IJTIS), 3(1), 31-35.](https://jurnal.umk.ac.id/index.php/ijtis/article/download/7530/pdf)
+5. [Isnain, A. R., Supriyanto, J., & Kharisma, M. P. (2021). Implementation of K-Nearest Neighbor (K-NN) algorithm for public sentiment analysis of online learning. IJCCS (Indonesian Journal of Computing and Cybernetics Systems), 15(2), 121-130.](https://journal.ugm.ac.id/ijccs/article/view/65176)
+6. [Setyati, W. A., Sunaryo, S., Rezagama, A., Widodo, A. K., & Yulianto, M. F. A. (2020). PENERAPAN REGRESI LOGISTIK DALAM PENENTUAN FAKTOR YANG MEMPENGARUHI JUMLAH WISATAWAN ECOTOURISM DESA BEDONO. Jurnal Enggano, 5(1), 11-22.](https://core.ac.uk/download/pdf/327105237.pdf)
+
+
+</div>
