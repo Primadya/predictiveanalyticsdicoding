@@ -10,7 +10,7 @@ Domain yang dipilih untuk proyek *machine learning* ini adalah **Pertanian**, de
 **Rubrik/Kriteria Tambahan (Opsional)**:
 
 
-![Foto Buah Pisang](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/buahpisang.jpg)
+![Foto Buah Pisang](image/buahpisang.jpg)
 
 
 
@@ -115,11 +115,11 @@ Dataset terdiri dari 8 kolom:
 
 ### EDA - Univariate Analysis
 
-![Analisis Univariat (Data Kategori)](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%201.png)
+![Analisis Univariat (Data Kategori)](https://github.com/Primadya/predictiveanalyticsdicoding/blob/08d41f38997b8801c9e071bc35c45457670fe773/image/gambar%201.png)
 
 **Gambar 1.1.** Analisis Univariat (Data Kategori)
 
-![Univariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2012.png)
+![Univariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/08d41f38997b8801c9e071bc35c45457670fe773/image/gambar%2012.png)
 
 **Gambar 1.2.** Analisis Univariat (Data Numerik)
 
