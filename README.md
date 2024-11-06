@@ -6,11 +6,8 @@
 ## Domain Proyek
 Domain yang dipilih untuk proyek *machine learning* ini adalah **Pertanian**, dengan judul **Predictive Analytics: Kualitas Buah Pisang**
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
 
-
-![Foto Buah Pisang](image/buahpisang.jpg)
-
+![Foto Buah Pisang](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/buahpisang.jpg?raw=true)
 
 
 Indonesia merupakan salah satu produsen pisang utama di Asia Tenggara dengan produksi tahunan yang mencapai sekitar 8 juta ton, menjadikannya komoditas pertanian bernilai tinggi yang memberikan kontribusi penting terhadap perekonomian nasional. Pisang memiliki nilai ekonomis yang besar bagi petani lokal, namun industri ini menghadapi tantangan signifikan dalam menjaga mutu produk. Mutu pisang dapat mengalami penurunan akibat sejumlah faktor, seperti ukuran buah yang tidak sesuai standar, tingkat kematangan yang tidak optimal, dan tekstur yang tidak memenuhi kualitas ideal. Penurunan mutu ini dapat menimbulkan dampak ekonomi yang merugikan, baik bagi petani maupun distributoraatan [[1](https://journal.ipb.ac.id/index.php/jagbi/article/view/36753)].
@@ -114,11 +111,11 @@ Dataset terdiri dari 8 kolom:
 
 ### EDA - Univariate Analysis
 
-![Analisis Univariat (Data Kategori)](https://github.com/Primadya/predictiveanalyticsdicoding/blob/08d41f38997b8801c9e071bc35c45457670fe773/image/gambar%201.png)
+![Analisis Univariat (Data Kategori)](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%201.png?raw=true)
 
 **Gambar 1.1.** Analisis Univariat (Data Kategori)
 
-![Univariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/08d41f38997b8801c9e071bc35c45457670fe773/image/gambar%2012.png)
+![Univariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2012.png?raw=true)
 
 **Gambar 1.2.** Analisis Univariat (Data Numerik)
 
@@ -137,11 +134,11 @@ Dari analisis ini, dataset dinyatakan telah dinormalisasi menggunakan metode z-s
 
 ### EDA - Multivariate Analysis
 
-![Multivariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2021.png)
+![Multivariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2021.png?raw=true)
 
 **Gambar 2.1.** Analisis Multivariat
 
-![Multivariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2022.png)
+![Multivariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2022.png?raw=true)
 
 **Gambar 2.2.** Analisis Matriks Korelasi
 
@@ -161,10 +158,33 @@ Analisis ini memberikan wawasan tentang hubungan antar variabel yang dapat dieks
 ## Data Preparation
 Pada bagian ini dilakukan langkah-langkah untuk mempersiapkan data, termasuk proses data gathering, data assessing, dan data cleaning agar dataset siap digunakan dalam pemodelan.
 Tahapan Persiapan Data
-1. Pengubahan Tipe Kolom: Kolom Quality diubah namanya menjadi label dan tipe datanya diubah menjadi category untuk mempermudah pengolahan data.
-2. Pembagian Data (Train-Test Split): Dataset dibagi menjadi data latih dan data uji menggunakan fungsi train_test_split dari library sklearn.model_selection, dengan rasio 80:20 dan random state sebesar 42. Langkah ini dilakukan untuk menghindari data leakage.
-3. Normalisasi Data: Normalisasi diterapkan menggunakan MinMaxScaler untuk menyelaraskan rentang nilai tiap fitur, sehingga variabel memiliki skala yang seragam dan sebanding.
-
+1. **Pengubahan Tipe Kolom dan Mapping Label:**
+   - Kolom `Quality` diubah namanya menjadi `label`, lalu dilakukan pemetaan nilai pada kolom `label` agar data mudah diolah: nilai `'Good'` dipetakan menjadi `1` dan `'Bad'` menjadi `0`.
+   ```python
+   df['label'] = df['Quality'].map({'Good': 1, 'Bad': 0})
+   df.head()
+2. **Pembagian Data (Train-Test Split):**
+    Dataset dibagi menjadi fitur (X) dan label (y), dengan memisahkan kolom label dari fitur lainnya. Selanjutnya, data dibagi menjadi data latih dan data uji dengan rasio 80:20 menggunakan train_test_split dari sklearn.model_selection dan random state sebesar 42 untuk memastikan replikasi yang konsisten.
+    ```python
+    from sklearn.model_selection import train_test_split
+    X = df.drop('label', axis=1)  # Menghapus kolom label dari dataset
+    y = df['label']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    print(f'Total datasets: {len(X)}')
+    print(f'Total data Latih: {len(X_train)}')
+    print(f'Total data Uji: {len(X_test)}')
+    ```
+    
+3. **Normalisasi Data:**
+    Normalisasi diterapkan pada fitur X_train dan X_test menggunakan MinMaxScaler dari sklearn.preprocessing. Langkah ini dilakukan agar nilai setiap fitur berada pada rentang yang sama, yang akan membantu meningkatkan performa model saat pelatihan.
+    ```python
+    Salin kode
+    from sklearn.preprocessing import MinMaxScaler
+    scaler = MinMaxScaler()
+    scaler.fit(X_train)
+    X_train = scaler.transform(X_train)
+    X_test = scaler.transform(X_test)
+    ```
 ## Modeling
 
 ### Random Forest
@@ -269,7 +289,7 @@ Di bawah ini adalah hasil *accuracy* dari lima model yang digunakan dalam proyek
 | Logistic Regression          | 0.87     |
 
 
-![Gambar Plot Akurasi](https://github.com/Primadya/predictiveanalyticsdicoding/blob/7680b5def24d0dcb5328444510e122c6923c5b2a/image/gambar%203.png)
+![Gambar Plot Akurasi](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%203.png?raw=true)
 
 Dari tabel tersebut, *Support Vector Machine (SVM)* menunjukkan akurasi tertinggi, diikuti oleh *K-Nearest Neighbors (KNN)* dan *Random Forest*. Ketiga model ini paling efektif dalam memprediksi kualitas pisang, yang sejalan dengan tujuan proyek untuk meningkatkan kualitas dan nilai jual pisang bagi petani dan distributor.
 
