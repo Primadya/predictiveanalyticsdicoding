@@ -269,7 +269,7 @@ Di bawah ini adalah hasil *accuracy* dari lima model yang digunakan dalam proyek
 | Logistic Regression          | 0.87     |
 
 
-![Gambar Plot Akurasi](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/buahpisang.jpg)
+![Gambar Plot Akurasi](https://github.com/Primadya/predictiveanalyticsdicoding/blob/7680b5def24d0dcb5328444510e122c6923c5b2a/image/gambar%203.png)
 
 Dari tabel tersebut, *Support Vector Machine (SVM)* menunjukkan akurasi tertinggi, diikuti oleh *K-Nearest Neighbors (KNN)* dan *Random Forest*. Ketiga model ini paling efektif dalam memprediksi kualitas pisang, yang sejalan dengan tujuan proyek untuk meningkatkan kualitas dan nilai jual pisang bagi petani dan distributor.
 
