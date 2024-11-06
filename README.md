@@ -2,10 +2,12 @@
 
 <div align="justify">
 
+# Laporan Proyek Machine Learning - Nauval Dwi Primadya
 
-   
 ## Domain Proyek
 Domain yang dipilih untuk proyek *machine learning* ini adalah **Pertanian**, dengan judul **Predictive Analytics: Kualitas Buah Pisang**
+
+**Rubrik/Kriteria Tambahan (Opsional)**:
 
 
 ![Foto Buah Pisang](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/buahpisang.jpg)
@@ -13,7 +15,7 @@ Domain yang dipilih untuk proyek *machine learning* ini adalah **Pertanian**, de
 
 
 Indonesia merupakan salah satu produsen pisang utama di Asia Tenggara dengan produksi tahunan yang mencapai sekitar 8 juta ton, menjadikannya komoditas pertanian bernilai tinggi yang memberikan kontribusi penting terhadap perekonomian nasional. Pisang memiliki nilai ekonomis yang besar bagi petani lokal, namun industri ini menghadapi tantangan signifikan dalam menjaga mutu produk. Mutu pisang dapat mengalami penurunan akibat sejumlah faktor, seperti ukuran buah yang tidak sesuai standar, tingkat kematangan yang tidak optimal, dan tekstur yang tidak memenuhi kualitas ideal. Penurunan mutu ini dapat menimbulkan dampak ekonomi yang merugikan, baik bagi petani maupun distributoraatan [[1](https://journal.ipb.ac.id/index.php/jagbi/article/view/36753)].
-Predictive analytics dalam sektor pisang menunjukkan potensi besar dalam meningkatkan nilai komoditas ini. Teknologi ini dapat mendukung petani dengan meningkatkan kualitas serta jumlah hasil panen, yang pada akhirnya dapat meningkatkan pendapatan mereka. Selain itu, distributor diuntungkan melalui pengurangan risiko kerugian dan peningkatan efisiensi dalam manajemen rantai pasokan. Dari sisi konsumen, teknologi ini memungkinkan akses terhadap pisang berkualitas tinggi dengan harga yang lebih stabil. 
+Predictive analytics dalam sektor pisang menunjukkan potensi besar dalam meningkatkan nilai komoditas ini. Teknologi ini dapat membantu petani dengan menjaga kualitas hasil panen, yang pada akhirnya dapat meningkatkan pendapatan mereka. Selain itu, distributor diuntungkan melalui pengurangan risiko kerugian dan peningkatan efisiensi dalam manajemen rantai pasokan. Dari sisi konsumen, teknologi ini memungkinkan akses terhadap pisang berkualitas tinggi dengan harga yang lebih stabil.
 
 ## Business Understanding
 
@@ -57,155 +59,207 @@ Melakukan analisis data secara mendalam melalui univariate dan multivariate anal
       merupakan salah satu metode statistika yang digunakan untuk memprediksi hasil biner dari suatu variabel dependen berdasarkan satu atau lebih variabel independen. Pendekatan ini telah  menjadi  sangat  populer  dalam  analisis  data  yang  melibatkan  variabel  kategorial  dan  memiliki penerapan yang luas di berbagai bidang disiplin ilmu, termasuk ekonomi, kedokteran, dan ilmu sosial [[6](https://core.ac.uk/download/pdf/327105237.pdf)]
 
 ## Data Understanding
+
 ### EDA - Deskripsi Variabel
-**Informasi Datasets**
 
+### Informasi Datasets
 
-| Jenis | Keterangan |
-| ------ | ------ |
-| Title | Banana Quality |
-| Source | [Kaggle](https://www.kaggle.com/datasets/l3llff/banana) |
-| Maintainer | [l3LlFF ](https://www.kaggle.com/l3llff) |
-| License | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
-| Visibility | Publik |
-| Tags | _Earth and Nature, Education, Food, Data Visualization, Exploratory Data Analysis, Binary Classification_ |
-| Usability | 10.00 |
+| Jenis      | Keterangan                                                                 |
+|------------|-----------------------------------------------------------------------------|
+| Title      | Banana Quality                                                             |
+| Source     | [Kaggle](https://www.kaggle.com/datasets/l3llff/banana)                  |
+| Maintainer | [l3LlFF](https://www.kaggle.com/l3llff)                                   |
+| License    | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)                  |
+| Visibility | Publik                                                                      |
+| Tags       | _Earth and Nature, Education, Food, Data Visualization, Exploratory Data Analysis, Binary Classification_ |
+| Usability  | 10.00                                                                      |
 
-Berikut informasi pada dataset: 
+Berikut informasi pada dataset:
 
+| Size       | Weight     | Sweetness | Softness  | HarvestTime | Ripeness   | Acidity   | Quality |
+|------------|------------|-----------|-----------|-------------|------------|-----------|--------|
+| -1.924968  | 0.468078   | 3.077832  | -1.472177 | 0.294799    | 2.435570   | 0.271290  | Good   |
+| -2.409751  | 0.486870   | 0.346921  | -2.495099 | -0.892213   | 2.067549   | 0.307325  | Good   |
+| -0.357607  | 1.483176   | 1.568452  | -2.645145 | -0.647267   | 3.090643   | 1.427322  | Good    |
+| -0.868524  | 1.566201   | 1.889605  | -1.273761 | -1.006278   | 1.873001   | 0.477862  | Good   |
+| 0.651825   | 1.319199   | -0.022459 | -1.209709 | -1.430692   | 1.078345   | 2.812442  | Good   |
 
- | Size | Weight | Sweetness | Softness | HarvestTime | Ripeness | Acidity | Quality |
- | ------ |------ | ------ | ------ | ------ |------ | ------ |------ |
- | -1.924968 |0.468078 | 3.077832 |-1.472177 | 0.294799 |2.435570	| 0.271290  |Good |
- | -2.409751 |0.486870 | 0.346921 |-2.495099 | -0.892213 | 2.067549 | 0.307325  |Good |
- | -0.357607 |1.483176 | 1.568452 |-2.645145 | -0.647267 |3.090643	| 1.427322  |Good |
- | -0.868524 |1.566201 | 1.889605 |-1.273761 | -1.006278 |1.873001	| 0.477862  |Good |
- | 0.651825 |1.319199 | -0.022459 |-1.209709 | -1.430692 |1.078345	| 2.812442  |Good |
+**Tabel 1.** Hasil *Exploratory Data Analysis* (EDA) dari deskripsi variabel. Dataset ini telah melalui proses *preprocessing* awal yang mencakup pembersihan dan normalisasi.
 
+- **Tipe Data**: Terdapat tujuh variabel bertipe `float64` dan satu variabel `Quality` yang bertipe `object`. Kolom `Quality` telah diubah menjadi `label` untuk memudahkan analisis.
+- **Kondisi Data**:
+  - **Missing Values**: Tidak ditemukan nilai yang hilang di seluruh kolom dataset.
+  - **Duplicate Values**: Tidak ada data duplikat yang ditemukan.
 
-Tabel 1.
+Untuk outliers, metode dropping berbasis Interquartile Range (IQR) digunakan, dengan menghitung IQR sebagai selisih antara kuartil ketiga (Q3) dan kuartil pertama (Q1):
 
-Tabel 1 menyajikan hasil *Exploratory Data Analysis* (EDA) dari deskripsi variabel. Dataset ini telah melalui proses *preprocessing* awal, termasuk pembersihan dan normalisasi.
+$$IQR = Q_3 - Q_1$$
 
-- Dataset ini tersedia dalam format CSV (Comma-Separated Values).
-- Dataset terdiri atas 8000 sampel dan 8 fitur.
-- Dari total fitur, 7 memiliki tipe data float64, sedangkan 1 lainnya bertipe object.
+Setelah menghapus outliers, jumlah data berkurang dari `8.000` menjadi `7.645`. Data dibagi menjadi data latih dan data uji dengan rasio 80:20 menggunakan fungsi *Train Test Split* dari library *sklearn.model_selection*, dengan random state sebesar 42. Normalisasi dilakukan menggunakan *MinMaxScaler* dari library *sklearn.preprocessing*.
+
+- **Distribusi Data**: Analisis univariat menunjukkan bahwa distribusi variabel numerik simetris dan mendekati normal setelah normalisasi. Untuk data kategorikal, distribusi kualitas _Good_ (4006) dan _Bad_ (3994) cukup seimbang.
+  
+- **Korelasi Antar Variabel**: Analisis menunjukkan beberapa korelasi moderat, seperti antara Size dan HarvestTime (0,58) serta Ripeness dan Acidity (-0,35). Sebagian besar variabel lainnya menunjukkan korelasi lemah.
 
 ### Variabel-variabel pada dataset adalah sebagai berikut:
-Informasi dari dataframe diatas adalah sebagai berikut, yang terdiri dari 8 kolom. 
+Dataset terdiri dari 8 kolom:
 
 - **Size**: ukuran buah
 - **Weight**: berat buah
-- **Sweetness**: tingkat kemanisan buah
-- **Softness**: kelembutan buah
-- **HarvestTime**: waktu yang telah berlalu sejak buah dipanen
-- **Ripeness**: tingkat kematangan buah
-- **Acidity**: tingkat keasaman buah
-- **Quality**: kualitas buah
-
-pada label `Quality` dirubah menjadi `label` agar memudahkan dalam pengolahan data. 
+- **Sweetness**: tingkat kemanisan
+- **Softness**: kelembutan
+- **HarvestTime**: waktu pascapanen
+- **Ripeness**: tingkat kematangan
+- **Acidity**: tingkat keasaman
+- **Quality**: kualitas buah (label ini dirubah menjadi `label`).
 
 ### EDA - Univariate Analysis
 
 ![Analisis Univariat (Data Kategori)](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%201.png)
 
-Gambar 1.1. Analisis Univariat (Data Kategori) 
+**Gambar 1.1.** Analisis Univariat (Data Kategori)
 
 ![Univariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2012.png)
 
-Gambar 1.2. Analisis Univariat (Data Numerik) 
+**Gambar 1.2.** Analisis Univariat (Data Numerik)
 
- Berdasarkan _Gambar 1.1_ , dapat dilihat bahwa distribusi data katagorik _laebl_ yang terdiri dari _good_ dan _bad_ kualitas apel, yang mana nilai data **bad** terdiri dari `3994` dan **good** terdiri dari `4006`, yang mana menunjukan perbandingan data yang tidak terlalu jauh. 
- Pada _Gambar 1.2,_ untuk data numerik memiliki karakteristik, yaitu:
-  Distribusi variabel numerik pada gambar di atas menunjukkan beberapa karakteristik penting yang mencerminkan sifat statistik dari dataset setelah melalui proses normalisasi, kemungkinan dengan metode z-score normalization. Berikut adalah hasil observasi dari masing-masing variabel:
+Berdasarkan **Gambar 1.1**, distribusi data kategorik menunjukkan jumlah data **bad** sebanyak `3994` dan **good** sebanyak `4006`, dengan perbandingan yang hampir seimbang. 
 
-- **Size**: Distribusi variabel ini menunjukkan bahwa ukuran rata-rata buah terletak di sekitar rentang -2 hingga 2, dengan persebaran data yang simetris. Rentang ini menunjukkan ukuran buah yang relatif seragam dalam dataset.
-- **Weight**: Data berat buah juga memiliki distribusi yang simetris di sekitar nol, dengan sebagian besar nilai terletak antara -2 dan 2. Hal ini mengindikasikan bahwa rata-rata berat buah dalam dataset telah dinormalisasi, sehingga mendekati distribusi normal dengan rata-rata di sekitar nol.
-- **Sweetness**: Tingkat kemanisan buah memiliki distribusi serupa, dengan nilai yang terkonsentrasi di antara -2 hingga 2. Simetri distribusi ini menunjukkan tingkat kemanisan yang terdistribusi secara merata.
-- **Softness**: Distribusi kekerasan atau kelembutan buah menunjukkan sedikit asimetri, dengan puncak distribusi yang tidak sepenuhnya simetris, mengindikasikan variasi yang lebih besar dalam tekstur buah.
-- **HarvestTime** dan **Ripeness**: Kedua variabel ini memiliki pola distribusi yang simetris dan terkonsentrasi di sekitar nol, menunjukkan bahwa waktu panen dan tingkat kematangan buah cenderung terdistribusi secara merata, tanpa ada bias yang signifikan.
-- **Acidity**: Distribusi variabel tingkat keasaman juga simetris di sekitar nol, dengan rentang antara -2 hingga 2. Hal ini menunjukkan bahwa keasaman buah dalam dataset memiliki penyebaran yang relatif seragam.
+Pada **Gambar 1.2**, distribusi variabel numerik mencerminkan karakteristik statistik setelah normalisasi. Berikut adalah hasil observasi dari masing-masing variabel:
 
-Berdasarkan pola distribusi ini, dapat disimpulkan bahwa dataset telah dinormalisasi menggunakan metode z-score normalization, di mana setiap nilai data dikurangi dengan nilai rata-rata (mean) dan kemudian dibagi dengan standar deviasi. Proses ini menghasilkan distribusi dengan rata-rata mendekati nol dan standar deviasi mendekati satu untuk setiap variabel, sehingga memungkinkan analisis yang lebih komparatif antar variabel.
+- **Size**: ukuran rata-rata buah terletak di rentang -2 hingga 2, dengan persebaran simetris.
+- **Weight**: distribusi berat buah simetris di sekitar nol, mayoritas nilai antara -2 dan 2.
+- **Sweetness**: kemanisan juga terkonsentrasi di antara -2 hingga 2.
+- **Softness**: menunjukkan sedikit asimetri, mencerminkan variasi tekstur.
+- **HarvestTime** dan **Ripeness**: pola distribusi simetris sekitar nol.
+- **Acidity**: tingkat keasaman simetris di sekitar nol, rentang antara -2 hingga 2.
 
+Dari analisis ini, dataset dinyatakan telah dinormalisasi menggunakan metode z-score normalization, memungkinkan analisis komparatif antar variabel.
 
 ### EDA - Multivariate Analysis
 
 ![Multivariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2021.png)
 
-
-Gambar 2.1. Analisis Multivariat
+**Gambar 2.1.** Analisis Multivariat
 
 ![Multivariate Analysis](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%2022.png)
 
+**Gambar 2.2.** Analisis Matriks Korelasi
 
-Gambar 2.2. Analisis Matriks Korelasi
+Pada **Gambar 2.1**, matriks scatterplot menunjukkan hubungan antar delapan variabel, tanpa pola linier yang kuat. 
 
-Pada _Gambar 2.1. Analisis Multivariat_, matriks scatterplot yang menunjukkan hubungan antara delapan variabel: "Size," "Weight," "Sweetness," "Softness," "HarvestTime," "Ripeness," dan "Acidity." Histogram di diagonal memperlihatkan distribusi masing-masing variabel, sementara scatterplot di luar diagonal menunjukkan hubungan antar-variabel. Sebagian besar scatterplot menunjukkan pola titik yang menyebar dan berbentuk bundar, menandakan bahwa tidak ada korelasi yang kuat atau pola linier antara variabel-variabel ini, sehingga variabel-variabel tersebut tampak cukup independen satu sama lain. Secara keseluruhan, plot ini menunjukkan bahwa tidak ada hubungan atau pola signifikan di antara variabel-variabel yang dianalisis.
+Di **Gambar 2.2**, matriks korelasi mengungkap hubungan linier variabel numerik. Temuan utama termasuk:
 
-Pada _Gambar 2.2_ Matriks korelasi pada gambar di atas menunjukkan hubungan linier antara variabel numerik dalam dataset, diukur menggunakan koefisien korelasi Pearson yang berkisar antara -1 hingga 1. Nilai koefisien positif (ditandai dengan warna merah) menunjukkan korelasi positif, di mana peningkatan nilai pada satu variabel cenderung diikuti oleh peningkatan pada variabel lainnya. Sebaliknya, koefisien negatif (ditandai dengan warna biru) menunjukkan korelasi negatif, di mana peningkatan nilai pada satu variabel berkaitan dengan penurunan pada variabel lainnya.
+1. **Size dan HarvestTime** memiliki korelasi positif kuat (0,58).
+2. **Weight dan Sweetness** menunjukkan korelasi positif moderat (0,4).
+3. **Ripeness dan Acidity** memiliki korelasi negatif (-0,35).
+4. **Size dan Sweetness** menunjukkan korelasi negatif (-0,27).
+5. Sebagian besar variabel lain menunjukkan korelasi lemah.
 
-Beberapa temuan utama dari matriks korelasi ini adalah sebagai berikut:
+Analisis ini memberikan wawasan tentang hubungan antar variabel yang dapat dieksplorasi lebih lanjut dalam penelitian karakteristik buah dalam dataset ini.
 
-1. **Size dan HarvestTime** memiliki korelasi positif yang cukup kuat (0,58), mengindikasikan bahwa ukuran buah yang lebih besar cenderung membutuhkan waktu lebih lama hingga mencapai masa panen. Korelasi ini menunjukkan adanya keterkaitan antara perkembangan ukuran buah dan waktu panennya.
-
-2. **Weight dan Sweetness** menunjukkan korelasi positif moderat (0,4), yang mengindikasikan bahwa buah dengan bobot lebih besar cenderung memiliki tingkat kemanisan yang lebih tinggi. Hal ini mungkin terkait dengan akumulasi gula yang meningkat seiring pertambahan massa buah.
-
-3. **Ripeness dan Acidity** memiliki korelasi negatif sebesar -0,35. Korelasi ini menunjukkan bahwa buah yang lebih matang cenderung memiliki tingkat keasaman yang lebih rendah, yang dapat mengindikasikan bahwa keasaman berkurang seiring proses pematangan.
-
-4. **Size dan Sweetness** memiliki korelasi negatif (-0,27), yang menunjukkan bahwa buah dengan ukuran yang lebih besar cenderung memiliki tingkat kemanisan yang lebih rendah, sebuah indikasi potensi hubungan invers antara ukuran fisik dan karakteristik rasa buah.
-
-5. Mayoritas variabel lainnya menunjukkan korelasi yang lemah atau mendekati nol, menandakan bahwa tidak terdapat hubungan linier yang signifikan antar variabel tersebut dalam konteks ini.
-
-Analisis korelasi ini memberikan wawasan mengenai potensi hubungan antar variabel, yang dapat menjadi dasar untuk analisis lebih lanjut dalam mengeksplorasi faktor-faktor yang memengaruhi karakteristik buah dalam dataset ini.
 
 ## Data Preparation
-Dalam tahap *Data Preparation*, dilakukan beberapa aktivitas seperti *Data Gathering*, *Data Assessing*, dan *Data Cleaning*. Pada *Data Gathering*, data diimpor dalam format yang sesuai agar dapat diolah dengan baik menggunakan dataframe Pandas. Tahap *Data Assessing* mencakup pemeriksaan beberapa aspek, termasuk: duplikasi data (data yang identik dengan entri lainnya), nilai yang hilang (*missing values*), dan nilai ekstrem (*outliers*) yang menyimpang dari pola umum data. 
-
-Selama *Data Cleaning*, beberapa langkah dilakukan, antara lain:
-- Mengubah tipe kolom agar sesuai dengan kebutuhan analisis (*Converting Column Type*).
-- Membagi data menjadi data latih dan data uji menggunakan *Train Test Split*.
-- Melakukan normalisasi untuk menyelaraskan rentang nilai semua fitur atau atribut, sehingga memiliki skala yang sebanding.
-
-Dalam proyek ini, tidak ditemukan duplikasi data dan *missing value*. Sedangkan, untuk *outliers*, metode *dropping* berbasis *Interquartile Range* (IQR) digunakan, dengan menghitung IQR sebagai selisih antara kuartil ketiga (Q3) dan kuartil pertama (Q1), sesuai dengan rumus berikut:
-
-$$IQR = Q_3 - Q_1$$
-
-- Q1 adalah kuartil pertama
-- Q3 adalah kuartil ketiga
-
-Setelah menghapus *outliers* dengan metode IQR, jumlah data berkurang dari `8.000` menjadi `7.645`. Pembagian data latih dan data uji dilakukan dengan fungsi *Train Test Split* dari library *sklearn.model_selection*, dengan rasio 80:20 dan *random state* sebesar 42. Selain itu, normalisasi dilakukan menggunakan *MinMaxScaler* dari library *sklearn.preprocessing* untuk menyelaraskan skala dataset. Seluruh proses ini bertujuan untuk menghasilkan model yang optimal.
+Pada bagian ini dilakukan langkah-langkah untuk mempersiapkan data, termasuk proses data gathering, data assessing, dan data cleaning agar dataset siap digunakan dalam pemodelan.
+Tahapan Persiapan Data
+1. Pengubahan Tipe Kolom: Kolom Quality diubah namanya menjadi label dan tipe datanya diubah menjadi category untuk mempermudah pengolahan data.
+2. Pembagian Data (Train-Test Split): Dataset dibagi menjadi data latih dan data uji menggunakan fungsi train_test_split dari library sklearn.model_selection, dengan rasio 80:20 dan random state sebesar 42. Langkah ini dilakukan untuk menghindari data leakage.
+3. Normalisasi Data: Normalisasi diterapkan menggunakan MinMaxScaler untuk menyelaraskan rentang nilai tiap fitur, sehingga variabel memiliki skala yang seragam dan sebanding.
 
 ## Modeling
-- Random Forest
-   Random Forest sangat efisien dalam menangani dataset berdimensi tinggi dan robust terhadap nilai ekstrem (outlier). Algoritma ini meningkatkan akurasi prediksi dengan teknik ensemble, tetapi dapat rentan terhadap overfitting pada dataset kecil dan membutuhkan waktu komputasi yang tinggi.
 
-- Gradient Boosting
-   Gradient Boosting efektif pada dataset kompleks dan mampu menangani variasi data dengan baik. Namun, algoritma ini memerlukan waktu komputasi yang tinggi dan lebih mudah mengalami overfitting dibandingkan dengan Random Forest.
+### Random Forest
+- **Konfigurasi**  
+  Random Forest dipilih karena kemampuannya dalam menangani dataset berdimensi tinggi dan ketahanannya terhadap nilai ekstrem. Model ini dikonfigurasi dengan parameter `n_estimators=100`, yang menunjukkan jumlah pohon yang dibangun, dan `max_depth=10`, yang membatasi kedalaman pohon untuk menghindari overfitting. Parameter `random_state=42` ditambahkan untuk menjaga konsistensi hasil eksperimen.
 
-- Support Vector Machine (SVM)
-   SVM memberikan akurasi prediksi yang tinggi dan mampu menangani dataset berdimensi tinggi. Meskipun begitu, SVM membutuhkan waktu komputasi yang signifikan dan sensitif terhadap pilihan kernel yang digunakan.
+- **Cara Kerja**  
+  Random Forest membangun sejumlah pohon keputusan secara acak dan menggabungkan hasil prediksi dari masing-masing pohon untuk meningkatkan akurasi. Dengan mengintegrasikan hasil dari beberapa pohon, teknik ini juga mengurangi risiko overfitting melalui rata-rata hasil prediksi.
 
-- K-Nearest Neighbors (KNN)
-   KNN adalah algoritma yang sederhana dan intuitif, cocok untuk klasifikasi dan regresi. Namun, algoritma ini memerlukan memori dan waktu komputasi yang besar, serta sensitif terhadap nilai-nilai ekstrem (outlier).
+- **Kelebihan**
+  1. Mampu menangani data berdimensi tinggi dengan baik.
+  2. Tahan terhadap outlier dan lebih stabil dibandingkan model pohon tunggal.
+  3. Dapat mengelola data dengan berbagai tipe fitur.
 
-- Logistic Regression
-   Logistic Regression mudah diinterpretasikan dan efektif untuk masalah linier. Sayangnya, model ini kurang akurat pada dataset yang kompleks atau non-linear dan mungkin memerlukan algoritma yang lebih canggih.
+- **Kelemahan**
+  1. Memerlukan lebih banyak sumber daya komputasi karena keberadaan banyak pohon dalam ensemble.
+  2. Interpretasi hasil lebih kompleks dibandingkan model pohon tunggal.
+
+### Gradient Boosting
+- **Konfigurasi**  
+  Gradient Boosting menggunakan parameter `learning_rate=0.1`, yang mengontrol kontribusi setiap pohon baru dalam memperbaiki kesalahan model sebelumnya, dan `n_estimators=100`, yang menunjukkan jumlah pohon dalam ensemble. Penetapan `random_state=42` memastikan hasil eksperimen yang konsisten.
+
+- **Cara Kerja**  
+  Gradient Boosting beroperasi secara iteratif, di mana setiap model baru dirancang untuk memperbaiki kesalahan dari model sebelumnya. Dengan menambahkan model baru untuk mengatasi kesalahan, akurasi meningkat secara bertahap dengan setiap iterasi dalam ensemble.
+
+- **Kelebihan**
+  1. Sangat akurat, terutama pada data yang kompleks.
+  2. Mengatasi masalah underfitting melalui proses iteratif.
+
+- **Kelemahan**
+  1. Rentan terhadap overfitting jika parameter tidak diatur dengan baik.
+  2. Cenderung memerlukan waktu lebih lama dalam proses pelatihan dibandingkan dengan model lain.
+
+### Support Vector Machine (SVM)
+- **Konfigurasi**  
+  SVM diterapkan dengan kernel RBF (`kernel='rbf'`) untuk mengakomodasi data berdimensi tinggi dan data non-linier. Parameter `C=1.0` digunakan sebagai regulasi untuk mengontrol margin antara kelas, sedangkan `gamma='scale'` menyesuaikan nilai gamma secara otomatis pada data kompleks. Fitur `probability=True` diaktifkan untuk memungkinkan prediksi probabilitas.
+
+- **Cara Kerja**  
+  SVM memisahkan data berdasarkan hyperplane yang memaksimalkan margin antar kelas. Kernel RBF memungkinkan model ini untuk menangani data dengan pola non-linier, sehingga memberikan fleksibilitas dalam pemisahan data.
+
+- **Kelebihan**
+  - Sangat efektif untuk data berdimensi tinggi.
+  - Memiliki kinerja yang baik pada data dengan batas pemisah yang jelas.
+
+- **Kelemahan**
+  - Kurang efisien pada dataset besar dalam hal waktu dan memori.
+  - Pemilihan parameter `C` dan `gamma` cukup sensitif dan dapat mempengaruhi hasil model secara signifikan.
+
+### K-Nearest Neighbors (KNN)
+- **Konfigurasi**  
+  Nilai `K=5` dipilih setelah evaluasi kinerja model pada berbagai nilai K untuk mencapai akurasi optimal.
+
+- **Cara Kerja**  
+  KNN mengklasifikasikan sampel uji berdasarkan kelas mayoritas dari lima tetangga terdekat, yang memungkinkan klasifikasi berdasarkan kemiripan data. Pendekatan ini memfasilitasi klasifikasi berdasarkan kedekatan atau kemiripan dalam fitur data.
+
+- **Kelebihan**
+  1. Sederhana dan mudah diimplementasikan.
+  2. Tidak memerlukan pelatihan, sehingga lebih cepat untuk diterapkan pada dataset kecil.
+
+- **Kelemahan**
+  1. Sensitif terhadap skala fitur dan outlier.
+  2. Kurang efisien pada dataset besar karena harus menghitung jarak ke setiap titik data lain dalam dataset.
+
+### Logistic Regression
+- **Konfigurasi**  
+  Logistic Regression digunakan sebagai model baseline yang sederhana dan mudah diinterpretasikan. Parameter `max_iter=1000` diatur untuk memungkinkan konvergensi pada dataset yang lebih besar, dan `random_state=42` digunakan untuk hasil yang konsisten.
+
+- **Cara Kerja**  
+  Logistic Regression menghasilkan probabilitas untuk klasifikasi biner dengan menggunakan fungsi sigmoid, dan bekerja optimal pada data dengan batas pemisah linier. Model ini menghasilkan prediksi probabilitas untuk setiap kelas, memungkinkan klasifikasi dengan interpretasi yang mudah.
+
+- **Kelebihan**
+  1. Mudah diinterpretasikan dan cukup cepat dalam proses pelatihan.
+  2. Bekerja dengan baik pada data yang memiliki batas pemisah linier.
+
+- **Kelemahan**
+  1. Kurang efektif untuk data yang tidak linier.
+  2. Lebih mungkin mengalami underfitting pada data yang kompleks dan berdimensi tinggi.
+
+Setelah pemilihan model dan konfigurasi, setiap model dievaluasi menggunakan metrik seperti akurasi, presisi, recall, dan F1-score untuk menentukan model dengan performa terbaik pada dataset ini.
 
 ## Evaluation
-Pada tahap evaluasi model, metrik yang digunakan adalah *accuracy*, yaitu ukuran yang menggambarkan persentase prediksi yang benar dari total prediksi yang dilakukan. *Accuracy* diperoleh dengan membandingkan jumlah prediksi benar dengan jumlah total prediksi, sesuai dengan rumus berikut:
+Pada tahap evaluasi model, metrik yang digunakan adalah *accuracy*, yang mengukur persentase prediksi yang benar dari keseluruhan prediksi yang dilakukan oleh model. Rumus untuk menghitung akurasi adalah sebagai berikut:
 
 $$\text{Accuracy} = \frac{\text{TP + TN}}{\text{TP + TN + FP + FN}} \times 100\%$$
 
 **Penjelasan Komponen:**
-- **TP (True Positive):** Jumlah data positif yang berhasil diklasifikasikan dengan benar sebagai positif.
-- **TN (True Negative):** Jumlah data negatif yang berhasil diklasifikasikan dengan benar sebagai negatif.
+- **TP (True Positive):** Jumlah data positif yang diklasifikasikan dengan benar sebagai positif.
+- **TN (True Negative):** Jumlah data negatif yang diklasifikasikan dengan benar sebagai negatif.
 - **FP (False Positive):** Jumlah data negatif yang salah diklasifikasikan sebagai positif (Kesalahan Tipe I).
 - **FN (False Negative):** Jumlah data positif yang salah diklasifikasikan sebagai negatif (Kesalahan Tipe II).
 
-Rumus ini menghitung rasio antara jumlah data yang diklasifikasikan dengan benar (TP dan TN) dengan jumlah keseluruhan data yang dievaluasi, kemudian mengalikannya dengan 100% untuk menyajikan hasil dalam bentuk persentase.
+Rumus ini menghitung persentase prediksi yang benar dibandingkan dengan keseluruhan prediksi, menyajikan hasil dalam bentuk persentase.
 
-Di bawah ini adalah hasil *accuracy* dari lima model yang digunakan dalam proyek ini, yaitu *Random Forest*, *Gradient Boosting*, *Support Vector Machine (SVM)*, *K-Nearest Neighbors (KNN)*, dan *Logistic Regression*:
+Di bawah ini adalah hasil *accuracy* dari lima model yang digunakan dalam proyek ini:
 
 | Model                        | Accuracy |
 |------------------------------|----------|
@@ -216,17 +270,21 @@ Di bawah ini adalah hasil *accuracy* dari lima model yang digunakan dalam proyek
 | Logistic Regression          | 0.87     |
 
 
-![Plot Akurasi](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%203.png)
+![Gambar Plot Akurasi](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/buahpisang.jpg)
 
-Analisis Hasil:
+Dari tabel tersebut, *Support Vector Machine (SVM)* menunjukkan akurasi tertinggi, diikuti oleh *K-Nearest Neighbors (KNN)* dan *Random Forest*. Ketiga model ini paling efektif dalam memprediksi kualitas pisang, yang sejalan dengan tujuan proyek untuk meningkatkan kualitas dan nilai jual pisang bagi petani dan distributor.
 
-- Support Vector Machine (SVM) memiliki akurasi tertinggi di antara semua model yang diuji, mencapai 0.99. Ini menunjukkan bahwa SVM memiliki kemampuan yang sangat baik dalam mengidentifikasi pola dalam dataset dan memisahkan kelas dengan margin yang optimal.
-- K-Nearest Neighbors (KNN) juga menunjukkan kinerja yang sangat baik dengan akurasi sebesar 0.98. Akurasi yang tinggi pada KNN menunjukkan bahwa untuk dataset ini, pendekatan berbasis tetangga terdekat mampu menangkap hubungan antara data secara efektif.
-- Random Forest mencapai akurasi 0.97, yang juga sangat tinggi. Sebagai metode ensemble yang menggabungkan prediksi dari banyak decision tree, Random Forest efektif dalam menangani variasi data yang tinggi dan tidak sensitif terhadap outlier.
-- Gradient Boosting memiliki akurasi sebesar 0.95, sedikit lebih rendah dibandingkan SVM, KNN, dan Random Forest. Meskipun akurasinya tinggi, metode Gradient Boosting cenderung rentan terhadap overfitting jika tidak disetel dengan hati-hati, yang dapat menjelaskan performa yang sedikit lebih rendah.
-- Logistic Regression memiliki akurasi terendah, yaitu 0.87, mengindikasikan bahwa model linier ini mungkin kurang mampu menangani dataset yang kompleks atau memiliki fitur non-linear yang kuat. Logistic Regression umumnya efektif untuk masalah klasifikasi sederhana, tetapi mungkin tidak optimal jika data memiliki pola yang lebih kompleks.
+### Diskusi Hasil Proyek terhadap Problem Statement dan Goals
 
-Secara keseluruhan, hasil ini menunjukkan bahwa Support Vector Machine (SVM) adalah model dengan akurasi tertinggi dalam proyek ini, diikuti oleh KNN dan Random Forest. Pemilihan model yang optimal, bagaimanapun, harus mempertimbangkan selain akurasi, juga metrik lain seperti precision, recall, dan F1 score, serta analisis lebih lanjut terhadap karakteristik dataset.
+Hasil evaluasi model menunjukkan bahwa akurasi tinggi dari SVM, KNN, dan Random Forest dapat secara langsung mendukung tujuan ketiga proyek ini. Dengan model yang mampu memprediksi kualitas pisang secara akurat, petani dan distributor dapat:
+
+- **Seleksi Buah yang Lebih Efisien**: Dengan akurasi model yang tinggi, petani dapat lebih percaya diri dalam memilih buah yang berkualitas untuk dipasarkan. Ini mengurangi risiko menjual buah yang tidak memenuhi standar kualitas.
+  
+- **Mengurangi Kerugian**: Dengan mengidentifikasi pisang yang tidak layak jual lebih awal, petani dapat mengurangi jumlah buah yang dibuang atau dijual dengan harga rendah, sehingga meningkatkan profitabilitas.
+
+- **Meningkatkan Nilai Jual**: Dengan memisahkan buah berdasarkan kualitas dengan lebih baik, distributor dapat menawarkan produk yang lebih baik kepada konsumen, meningkatkan kepuasan pelanggan dan mempertahankan loyalitas di pasar.
+
+Secara keseluruhan, hasil proyek ini menunjukkan bahwa pengembangan model prediksi tidak hanya berhasil mencapai akurasi yang tinggi, tetapi juga memberikan manfaat praktis bagi petani dan distributor. Dengan demikian, proyek ini memiliki potensi untuk meningkatkan kualitas dan nilai ekonomis buah pisang dalam rantai pasokan.
 
 
 
@@ -237,6 +295,7 @@ Secara keseluruhan, hasil ini menunjukkan bahwa Support Vector Machine (SVM) ada
 4. [Handayani, P. K. (2021). Penerapan Algoritma Support Vector Machine (Svm) Untuk Analisis Pola Klasifikasi Pada Parkinson’S Dataset. Indonesian Journal of Technology, Informatics and Science (IJTIS), 3(1), 31-35.](https://jurnal.umk.ac.id/index.php/ijtis/article/download/7530/pdf)
 5. [Isnain, A. R., Supriyanto, J., & Kharisma, M. P. (2021). Implementation of K-Nearest Neighbor (K-NN) algorithm for public sentiment analysis of online learning. IJCCS (Indonesian Journal of Computing and Cybernetics Systems), 15(2), 121-130.](https://journal.ugm.ac.id/ijccs/article/view/65176)
 6. [Setyati, W. A., Sunaryo, S., Rezagama, A., Widodo, A. K., & Yulianto, M. F. A. (2020). PENERAPAN REGRESI LOGISTIK DALAM PENENTUAN FAKTOR YANG MEMPENGARUHI JUMLAH WISATAWAN ECOTOURISM DESA BEDONO. Jurnal Enggano, 5(1), 11-22.](https://core.ac.uk/download/pdf/327105237.pdf)
+
 
 
 </div>
