@@ -2,7 +2,6 @@
 
 <div align="justify">
 
-# Laporan Proyek Machine Learning - Nauval Dwi Primadya
 
 ## Domain Proyek
 Domain yang dipilih untuk proyek *machine learning* ini adalah **Pertanian**, dengan judul **Predictive Analytics: Kualitas Buah Pisang**
