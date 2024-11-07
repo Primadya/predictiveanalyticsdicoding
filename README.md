@@ -329,9 +329,7 @@ Pada tahap evaluasi, metrik utama yang digunakan adalah akurasi (accuracy), yait
 
 Akurasi didefinisikan sebagai rasio dari prediksi yang benar terhadap seluruh prediksi yang dibuat oleh model. Rumus untuk menghitung akurasi adalah sebagai berikut:
 
-\[
-\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} \times 100
-\]
+$$\text{Accuracy} = \frac{\text{TP + TN}}{\text{TP + TN + FP + FN}} \times 100\%$$
 
 di mana:
 
