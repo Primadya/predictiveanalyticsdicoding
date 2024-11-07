@@ -21,38 +21,49 @@ Pengembangan model prediksi kualitas buah pisang memiliki potensi signifikan unt
 
 Berdasarkan latar belakang yang telah dijelaskan, berikut ini adalah perincian masalah yang dapat diatasi dalam proyek ini:
 
-1.  Bagaimana cara mengembangkan model machine learning untuk memprediksi kualitas pisang berdasarkan data visual dan sensorik?
-2.  Model seperti apa yang mampu mencapai tingkat akurasi prediksi tertinggi?
-3.  Bagaimana penerapan model ini dapat mendukung petani dan distributor dalam meningkatkan kualitas serta nilai ekonomi dari buah pisang?
+1. Bagaimana cara mengembangkan model *machine learning* untuk memprediksi kualitas pisang berdasarkan data visual dan sensorik?
+2. Model seperti apa yang mampu mencapai tingkat akurasi prediksi tertinggi?
+3. Bagaimana penerapan model ini dapat mendukung petani dan distributor dalam meningkatkan kualitas serta nilai ekonomi dari buah pisang?
 
 ### Goals
 
 Berikut adalah tujuan atau hasil yang diharapkan dari masing-masing pertanyaan dalam proyek ini:
 
-1. **Pengembangan model machine learning untuk memprediksi kualitas pisang**  
-   - Menghasilkan model machine learning yang dapat menganalisis data untuk memprediksi kualitas pisang secara akurat. Model ini diharapkan mampu mengidentifikasi faktor-faktor yang memengaruhi kualitas pisang sehingga dapat membantu dalam proses seleksi dan pemantauan kualitas.
+1. **Pengembangan model *machine learning* untuk memprediksi kualitas pisang**
+   - Menghasilkan model *machine learning* yang dapat menganalisis data untuk memprediksi kualitas pisang secara akurat. Model ini diharapkan mampu mengidentifikasi faktor-faktor yang memengaruhi kualitas pisang sehingga dapat membantu dalam proses seleksi dan pemantauan kualitas.
 
-2. **Menentukan model dengan akurasi prediksi terbaik**  
-   - Menemukan model yang memiliki tingkat akurasi paling tinggi melalui evaluasi berbagai algoritma machine learning. Model terbaik akan diidentifikasi berdasarkan hasil uji akurasi dan konsistensinya dalam memprediksi kualitas pisang di berbagai kondisi.
+2. **Menentukan model dengan akurasi prediksi terbaik**
+   - Menemukan model yang memiliki tingkat akurasi paling tinggi melalui evaluasi berbagai algoritma *machine learning*. Model terbaik akan diidentifikasi berdasarkan hasil uji akurasi dan konsistensinya dalam memprediksi kualitas pisang di berbagai kondisi.
 
-3. **Mengoptimalkan kualitas dan nilai jual pisang bagi petani dan distributor**  
+3. **Mengoptimalkan kualitas dan nilai jual pisang bagi petani dan distributor**
    - Memberikan solusi bagi petani dan distributor untuk meningkatkan kualitas pisang melalui panduan pemilahan dan pengelolaan buah berdasarkan prediksi model. Dengan demikian, model ini diharapkan membantu meningkatkan nilai jual pisang, mengurangi buah yang rusak atau tidak layak jual, dan memperbaiki efisiensi rantai pasokan.
 
+### Solution Statements
 
-### Solution statements
-Melakukan analisis data secara mendalam melalui univariate dan multivariate analysis merupakan langkah penting dalam memahami karakteristik data. Visualisasi data juga digunakan untuk memperoleh pemahaman yang lebih komprehensif, termasuk dalam mengidentifikasi matriks korelasi antar fitur dan mendeteksi keberadaan outlier. 
-- Melakukan pembersihan data (_data cleaning_) dan normalisasi data untuk memastikan prediksi yang optimal.
-- Mengembangkan beberapa variasi model machine learning untuk membandingkan performa dan menentukan model terbaik dalam memprediksi kualitas pisang. diantaranya adalah :
-    * Random Forest
-      Random forest adalah salah satu metode machine learning yang digunakan untuk tugas klasifikasi dan regresi [[2](https://repository.uinjkt.ac.id/dspace/handle/123456789/55034)]. Metode ini bekerja dengan menggabungkan beberapa pohon keputusan untuk meningkatkan akurasi dan mengurangi masalah overfitting. Random forest cukup populer karena kemudahan implementasinya, kemampuannya mengatasi ketidakseimbangan data, serta penerapannya pada klasifikasi dengan banyak kelas (multiclass).
-    * Gradient Boosting
-      Gradient boosting adalah teknik pembelajaran mesin yang sangat efektif dalam meningkatkan kinerja model klasifikasi dan regresi. Teknik ini bekerja dengan menggabungkan beberapa pohon keputusan kecil yang diperbaiki secara iteratif untuk memperoleh model akhir yang lebih akurat. Gradient boosting telah digunakan dalam berbagai aplikasi, termasuk prediksi keberhasilan telemarketing, deteksi penyakit, dan klasifikasi aktivitas fisik [[3](https://ejournal3.undip.ac.id/index.php/gaussian/article/view/31335)].
-    * Support Vector Machine
-      Support Vector Machine (SVM) adalah algoritma pembelajaran terarah yang digunakan untuk tugas klasifikasi dan regresi. SVM bekerja dengan mencari garis atau hiperseperti yang memaksimalkan jarak antara data dari setiap kelas dalam ruang N-dimensi2. SVM dikenal karena kemampuannya dalam mengatasi masalah klasifikasi linear dan non-linear dengan menggunakan fungsi kernel, seperti kernel linear, polynomial, radial basis function (RBF), atau sigmoid [[4](https://jurnal.umk.ac.id/index.php/ijtis/article/download/7530/pdf)].
-    * K-Nearest Neighbors
-      K-Nearest Neighbor (KNN) adalah salah satu algoritma machine learning yang digunakan dalam tugas klasifikasi dan regresi. Pendekatan ini dilakukan dengan mencari sejumlah k titik data terdekat dengan data yang ingin diklasifikasikan atau diregresikan. Selanjutnya, KNN memilih kelas atau nilai regresi yang paling sering muncul di antara k titik data tersebut. KNN dikenal karena kesederhanaannya dalam implementasi dan mampu memberikan hasil yang memuaskan, terutama pada dataset yang berukuran relatif kecil [[5](https://journal.ugm.ac.id/ijccs/article/view/65176)].
-    * Logistic Regression 
-      merupakan salah satu metode statistika yang digunakan untuk memprediksi hasil biner dari suatu variabel dependen berdasarkan satu atau lebih variabel independen. Pendekatan ini telah  menjadi  sangat  populer  dalam  analisis  data  yang  melibatkan  variabel  kategorial  dan  memiliki penerapan yang luas di berbagai bidang disiplin ilmu, termasuk ekonomi, kedokteran, dan ilmu sosial [[6](https://core.ac.uk/download/pdf/327105237.pdf)]
+Untuk mencapai tujuan di atas, beberapa langkah strategis direncanakan:
+
+1. **Analisis dan Visualisasi Data**
+   - Melakukan analisis data secara mendalam melalui analisis univariat dan multivariat untuk memahami karakteristik data.
+   - Melakukan visualisasi data untuk memperoleh pemahaman komprehensif, termasuk identifikasi matriks korelasi antar fitur dan deteksi keberadaan outlier yang berpotensi memengaruhi hasil model.
+
+2. **Pembersihan Data dan Normalisasi**
+   - Melakukan pembersihan data (*data cleaning*) dengan menghapus nilai-nilai yang tidak valid dan mengatasi outlier. Selanjutnya, data dinormalisasi untuk memastikan setiap fitur berada pada skala yang seragam dan dapat mendukung prediksi yang optimal.
+
+3. **Pengembangan Model *Machine Learning***
+   - Mengembangkan beberapa variasi model *machine learning* untuk memprediksi kualitas pisang dan melakukan perbandingan performa untuk memilih model terbaik. Model yang akan dievaluasi meliputi:
+     - **Random Forest**: Metode ini menggabungkan beberapa pohon keputusan untuk meningkatkan akurasi dan mengurangi masalah *overfitting* [[2](https://repository.uinjkt.ac.id/dspace/handle/123456789/55034)]. Random Forest cocok untuk klasifikasi multikelas dan mampu menangani data yang tidak seimbang dengan baik.
+     - **Gradient Boosting**: Teknik ini menggabungkan beberapa pohon keputusan kecil secara iteratif untuk mendapatkan model yang lebih akurat [[3](https://ejournal3.undip.ac.id/index.php/gaussian/article/view/31335)]. Gradient Boosting sering digunakan dalam tugas prediksi dan klasifikasi yang kompleks.
+     - **Support Vector Machine (SVM)**: Algoritma ini bekerja dengan memaksimalkan jarak antar kelas dalam ruang fitur. SVM efektif dalam menangani klasifikasi linear dan non-linear, terutama dengan penggunaan kernel seperti linear, polynomial, dan RBF [[4](https://jurnal.umk.ac.id/index.php/ijtis/article/download/7530/pdf)].
+     - **K-Nearest Neighbors (KNN)**: Algoritma ini mengklasifikasikan data berdasarkan tetangga terdekatnya. KNN sederhana dalam implementasi dan menghasilkan hasil yang memadai pada dataset yang lebih kecil [[5](https://journal.ugm.ac.id/ijccs/article/view/65176)].
+     - **Logistic Regression**: Metode ini digunakan untuk prediksi hasil biner dan populer untuk klasifikasi berdasarkan variabel kategorial. Logistic Regression memiliki aplikasi luas di berbagai disiplin ilmu [[6](https://core.ac.uk/download/pdf/327105237.pdf)].
+
+4. **Evaluasi dan Pemilihan Model Terbaik**
+   - Model terbaik akan dipilih berdasarkan akurasi dan stabilitasnya dalam berbagai kondisi data. Model ini akan dievaluasi melalui metrik akurasi, presisi, recall, dan F1-score untuk memastikan performa yang andal.
+
+5. **Penerapan dan Manfaat Model**
+   - Mengimplementasikan model terbaik untuk mendukung petani dan distributor dalam mengelola kualitas pisang. Dengan memanfaatkan model ini, pemangku kepentingan dapat melakukan pemilahan dan pengelolaan buah yang lebih efektif, sehingga mengurangi risiko kerusakan dan meningkatkan nilai jual pisang.
+
+Dengan mengikuti langkah-langkah ini, proyek ini diharapkan dapat menghasilkan model prediksi kualitas pisang yang akurat, yang bermanfaat bagi seluruh pemangku kepentingan dalam rantai pasokan pisang.
 
 ## Data Understanding
 
