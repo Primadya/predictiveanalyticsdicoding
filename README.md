@@ -322,27 +322,37 @@ Dengan tahapan data preparation di atas, dataset menjadi lebih bersih, konsisten
 Setelah pemilihan model dan konfigurasi, setiap model dievaluasi menggunakan metrik seperti akurasi, presisi, recall, dan F1-score untuk menentukan model dengan performa terbaik pada dataset ini.
 
 ## Evaluation
-Pada tahap evaluasi model, metrik yang digunakan adalah *accuracy*, yang mengukur persentase prediksi yang benar dari keseluruhan prediksi yang dilakukan oleh model. Rumus untuk menghitung akurasi adalah sebagai berikut:
 
-$$\text{Accuracy} = \frac{\text{TP + TN}}{\text{TP + TN + FP + FN}} \times 100\%$$
+Pada tahap evaluasi, metrik utama yang digunakan adalah akurasi (accuracy), yaitu metrik yang mengukur persentase prediksi yang benar dari keseluruhan prediksi yang dilakukan oleh model. Akurasi digunakan untuk memahami sejauh mana model mampu melakukan klasifikasi dengan benar, yaitu mengidentifikasi kualitas pisang dengan tepat berdasarkan data yang diberikan.
 
-**Penjelasan Komponen:**
-- **TP (True Positive):** Jumlah data positif yang diklasifikasikan dengan benar sebagai positif.
-- **TN (True Negative):** Jumlah data negatif yang diklasifikasikan dengan benar sebagai negatif.
-- **FP (False Positive):** Jumlah data negatif yang salah diklasifikasikan sebagai positif (Kesalahan Tipe I).
-- **FN (False Negative):** Jumlah data positif yang salah diklasifikasikan sebagai negatif (Kesalahan Tipe II).
+### Rumus Akurasi
 
-Rumus ini menghitung persentase prediksi yang benar dibandingkan dengan keseluruhan prediksi, menyajikan hasil dalam bentuk persentase.
+Akurasi didefinisikan sebagai rasio dari prediksi yang benar terhadap seluruh prediksi yang dibuat oleh model. Rumus untuk menghitung akurasi adalah sebagai berikut:
 
-Di bawah ini adalah hasil *accuracy* dari lima model yang digunakan dalam proyek ini:
+\[
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} \times 100
+\]
 
-| Model                        | Accuracy |
-|------------------------------|----------|
-| K-Nearest Neighbors (KNN)    | 0.98     |
-| Random Forest                | 0.97     |
-| Support Vector Machine (SVM) | 0.99     |
-| Gradient Boosting            | 0.95     |
-| Logistic Regression          | 0.87     |
+di mana:
+
+- **TP (True Positive)**: Jumlah data positif yang diklasifikasikan dengan benar sebagai positif.
+- **TN (True Negative)**: Jumlah data negatif yang diklasifikasikan dengan benar sebagai negatif.
+- **FP (False Positive)**: Jumlah data negatif yang salah diklasifikasikan sebagai positif. Ini dikenal sebagai Kesalahan Tipe I (False Alarm).
+- **FN (False Negative)**: Jumlah data positif yang salah diklasifikasikan sebagai negatif. Ini dikenal sebagai Kesalahan Tipe II (Miss).
+
+**Penjelasan**: Akurasi mengukur proporsi prediksi yang benar dari semua prediksi. Nilai akurasi yang lebih tinggi menunjukkan bahwa model secara konsisten dapat memprediksi kelas yang benar untuk data yang diuji. Misalnya, akurasi sebesar 0.98 berarti model dapat memprediksi dengan benar 98% dari keseluruhan data uji yang diberikan.
+
+### Hasil Evaluasi Model
+
+Berikut adalah hasil evaluasi akurasi dari lima model yang digunakan dalam proyek ini:
+
+| Model                          | Accuracy |
+|-------------------------------|----------|
+| K-Nearest Neighbors (KNN)     | 0.98     |
+| Random Forest                 | 0.97     |
+| Support Vector Machine (SVM)  | 0.99     |
+| Gradient Boosting             | 0.95     |
+| Logistic Regression           | 0.87     |
 
 
 ![Gambar Plot Akurasi](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%203.png?raw=true)
