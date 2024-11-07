@@ -371,7 +371,7 @@ Dari hasil benchmarking ini, **Support Vector Machine (SVM)** dan **K-Nearest Ne
 
 ![Gambar Plot Akurasi](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%203.png?raw=true)
 
-Dari tabel tersebut, *Support Vector Machine (SVM)* menunjukkan akurasi tertinggi, diikuti oleh *K-Nearest Neighbors (KNN)* dan *Random Forest*. Ketiga model ini paling efektif dalam memprediksi kualitas pisang, yang sejalan dengan tujuan proyek untuk meningkatkan kualitas dan nilai jual pisang bagi petani dan distributor.
+
 
 ### Diskusi Hasil Proyek terhadap Problem Statement dan Goals
 
