@@ -167,57 +167,80 @@ Analisis ini memberikan wawasan tentang hubungan antar variabel yang dapat dieks
 
 
 ## Data Preparation
-Pada bagian ini dilakukan langkah-langkah untuk mempersiapkan data, termasuk proses data gathering, data assessing, dan data cleaning agar dataset siap digunakan dalam pemodelan.
-Tahapan Persiapan Data
-1. **Menghapus Outlier Berdasarkan IQR:**
-   - Langkah pertama adalah menghilangkan outlier pada data numerik dengan menghitung kuartil pertama (Q1), kuartil ketiga (Q3), dan Interquartile Range (IQR). Data yang berada di luar rentang `(Q1 - 1.5 *    IQR)` dan `(Q3 + 1.5 * IQR)` dianggap sebagai outlier dan akan dihapus.
-   ```python
-   import pandas as pd
+Pada tahap ini, dilakukan beberapa teknik persiapan data yang meliputi penghapusan *outlier*, pengubahan tipe kolom dan pemetaan nilai, pembagian data menjadi set latih dan uji, serta normalisasi data. Teknik ini digunakan agar dataset siap digunakan dalam proses pemodelan *machine learning*. Berikut penjelasan teknik yang digunakan:
 
-   # Pastikan operasi hanya dilakukan pada kolom numerik
-   df_numeric = df.select_dtypes(include=[float, int])
+### 1. Menghapus *Outlier* Berdasarkan IQR
 
-   # Menghitung Q1, Q3, dan IQR
-   Q1 = df_numeric.quantile(0.25)
-   Q3 = df_numeric.quantile(0.75)
-   IQR = Q3 - Q1
+*Outlier* adalah data yang nilainya berada jauh dari mayoritas nilai lainnya dalam dataset, sehingga dapat memengaruhi performa model dalam mengidentifikasi pola yang representatif. Teknik *Interquartile Range* (IQR) digunakan untuk mendeteksi dan menghapus *outlier* pada data numerik. Langkahnya sebagai berikut:
 
-   # Menghapus outlier berdasarkan IQR
-   df_numeric_clean = df_numeric[~((df_numeric < (Q1 - 1.5 * IQR)) | (df_numeric > (Q3 + 1.5 * IQR))).any(axis=1)]
+- Menghitung Kuartil Pertama (Q1) dan Kuartil Ketiga (Q3) dari data numerik.
+- Menghitung IQR sebagai selisih antara Q3 dan Q1.
+- Menentukan rentang normal dengan rumus (Q1 - 1.5 * IQR) hingga (Q3 + 1.5 * IQR). Data yang berada di luar rentang ini dianggap sebagai *outlier*.
+- Menghapus data yang diidentifikasi sebagai *outlier*.
 
-   # Menggabungkan kembali dengan kolom non-numerik (jika ada)
-   df = df.loc[df_numeric_clean.index]
+```python
+# Memilih kolom numerik saja
+df_numeric = df.select_dtypes(include=[float, int])
 
-   # Menampilkan dataframe yang sudah bersih
-   print(df.head())
-   ```
-2. **Pengubahan Tipe Kolom dan Mapping Label:**
-   - Kolom `Quality` diubah namanya menjadi `label`, lalu dilakukan pemetaan nilai pada kolom `label` agar data mudah diolah: nilai `'Good'` dipetakan menjadi `1` dan `'Bad'` menjadi `0`.
-   ```python
-   df['label'] = df['Quality'].map({'Good': 1, 'Bad': 0})
-   df.head()
-3. **Pembagian Data (Train-Test Split):**
-    Dataset dibagi menjadi fitur (X) dan label (y), dengan memisahkan kolom label dari fitur lainnya. Selanjutnya, data dibagi menjadi data latih dan data uji dengan rasio 80:20 menggunakan train_test_split dari sklearn.model_selection dan random state sebesar 42 untuk memastikan replikasi yang konsisten.
-    ```python
-    from sklearn.model_selection import train_test_split
-    X = df.drop('label', axis=1)  # Menghapus kolom label dari dataset
-    y = df['label']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    print(f'Total datasets: {len(X)}')
-    print(f'Total data Latih: {len(X_train)}')
-    print(f'Total data Uji: {len(X_test)}')
-    ```
+# Menghitung Q1, Q3, dan IQR
+Q1 = df_numeric.quantile(0.25)
+Q3 = df_numeric.quantile(0.75)
+IQR = Q3 - Q1
+
+# Menghapus *outlier* berdasarkan IQR
+df_numeric_clean = df_numeric[~((df_numeric < (Q1 - 1.5 * IQR)) | (df_numeric > (Q3 + 1.5 * IQR))).any(axis=1)]
+
+# Menggabungkan kembali dengan kolom non-numerik (jika ada)
+df = df.loc[df_numeric_clean.index]
+
+# Melihat hasil dataset tanpa *outlier*
+print(df.head())
+```
+Penghapusan outlier membantu meningkatkan keakuratan model karena data yang digunakan menjadi lebih konsisten dan representatif.
+
+### 2. Pengubahan Tipe Kolom dan Mapping Label
+Kolom Quality diubah namanya menjadi label untuk memudahkan proses pemodelan, dan data pada kolom ini dimapping sehingga nilai kategorikal seperti "Good" dan "Bad" dikonversi menjadi nilai numerik. Hal ini memudahkan algoritma machine learning dalam melakukan proses perhitungan.
+```python
+# Mengubah nama kolom dan mapping label
+df['label'] = df['Quality'].map({'Good': 1, 'Bad': 0})
+print(df.head())
+```
+Mapping ini memastikan bahwa data dapat digunakan langsung oleh model, menghindari kesalahan interpretasi karena data kategorikal diubah menjadi bentuk yang dapat dihitung.
+
+### 3. Pembagian Data (Train-Test Split)
+Dataset dibagi menjadi dua bagian utama: data latih (training set) dan data uji (test set), dengan rasio 80:20. Ini dilakukan untuk memisahkan data yang akan digunakan untuk melatih model dan data yang akan digunakan untuk menguji performa model pada data baru yang tidak pernah dilihat sebelumnya. Penggunaan random_state dengan nilai tetap (misalnya, 42) memastikan bahwa pembagian data dapat direplikasi secara konsisten.
+```python
+from sklearn.model_selection import train_test_split
+
+# Pisahkan fitur dan label
+X = df.drop('label', axis=1)  # Menghapus kolom label dari dataset
+y = df['label']
+
+# Membagi data menjadi train dan test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Informasi jumlah data
+print(f'Total datasets: {len(X)}')
+print(f'Total data Latih: {len(X_train)}')
+print(f'Total data Uji: {len(X_test)}')
+```
+Pembagian data ini penting untuk menghindari data leakage (kebocoran data), yaitu ketika model "belajar" dari data yang seharusnya menjadi bagian dari pengujian.
+
+### 4. Normalisasi Data
+Normalisasi dilakukan untuk menyelaraskan rentang nilai tiap fitur, sehingga model lebih mudah untuk beradaptasi dan menghindari bias akibat skala fitur yang berbeda-beda. MinMaxScaler digunakan untuk mengubah nilai fitur menjadi rentang antara 0 dan 1, yang membuat proses komputasi lebih efisien dan hasil prediksi lebih stabil.
+```python
+from sklearn.preprocessing import MinMaxScaler
+
+# Menerapkan normalisasi pada data train dan test
+scaler = MinMaxScaler()
+scaler.fit(X_train)
+X_train = scaler.transform(X_train)
+X_test = scaler.transform(X_test)
+```
+Normalisasi membantu model mencapai hasil yang lebih akurat dengan meratakan nilai fitur, terutama untuk algoritma yang sensitif terhadap perbedaan skala, seperti regresi linier atau k-nearest neighbors.
+
+Dengan tahapan data preparation di atas, dataset menjadi lebih bersih, konsisten, dan siap untuk digunakan dalam pemodelan. Hal ini bertujuan untuk memastikan bahwa model memiliki performa optimal dan dapat diandalkan dalam memprediksi kualitas pisang.
     
-4. **Normalisasi Data:**
-    Normalisasi diterapkan pada fitur X_train dan X_test menggunakan MinMaxScaler dari sklearn.preprocessing. Langkah ini dilakukan agar nilai setiap fitur berada pada rentang yang sama, yang akan membantu meningkatkan performa model saat pelatihan.
-    ```python
-    Salin kode
-    from sklearn.preprocessing import MinMaxScaler
-    scaler = MinMaxScaler()
-    scaler.fit(X_train)
-    X_train = scaler.transform(X_train)
-    X_test = scaler.transform(X_test)
-    ```
 ## Modeling
 
 ### Random Forest
