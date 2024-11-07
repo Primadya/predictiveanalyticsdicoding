@@ -340,17 +340,33 @@ di mana:
 
 **Penjelasan**: Akurasi mengukur proporsi prediksi yang benar dari semua prediksi. Nilai akurasi yang lebih tinggi menunjukkan bahwa model secara konsisten dapat memprediksi kelas yang benar untuk data yang diuji. Misalnya, akurasi sebesar 0.98 berarti model dapat memprediksi dengan benar 98% dari keseluruhan data uji yang diberikan.
 
-### Hasil Evaluasi Model
+### Benchmarking Hasil Evaluasi Model
 
-Berikut adalah hasil evaluasi akurasi dari lima model yang digunakan dalam proyek ini:
+Untuk membandingkan performa model, dilakukan benchmarking berdasarkan beberapa metrik evaluasi utama, yaitu akurasi, presisi, recall, dan F1 score. Berikut adalah rangkuman hasil benchmarking untuk masing-masing model.
 
-| Model                          | Accuracy |
-|-------------------------------|----------|
-| K-Nearest Neighbors (KNN)     | 0.98     |
-| Random Forest                 | 0.97     |
-| Support Vector Machine (SVM)  | 0.99     |
-| Gradient Boosting             | 0.95     |
-| Logistic Regression           | 0.87     |
+| Model                           | Cross-Validation Accuracy | Test Set Accuracy | Precision | Recall | F1 Score |
+|---------------------------------|---------------------------|--------------------|-----------|--------|----------|
+| **Support Vector Machine (SVM)**| 97.91%                    | **98.76%**         | **98.76%**| **98.76%**| **98.76%**|
+| **K-Nearest Neighbors (KNN)**   | 97.83%                    | 98.04%             | 98.05%    | 98.04% | 98.04%   |
+| **Random Forest**               | 96.29%                    | 96.86%             | 96.87%    | 96.86% | 96.86%   |
+| **Gradient Boosting**           | 95.47%                    | 95.36%             | 95.37%    | 95.36% | 95.36%   |
+| **Logistic Regression**         | 87.38%                    | 87.05%             | 87.05%    | 87.05% | 87.05%   |
+
+### Analisis Benchmarking
+
+- **Support Vector Machine (SVM)** memiliki performa terbaik di seluruh metrik, dengan test set accuracy mencapai 98.76%. Ini menunjukkan bahwa SVM sangat efisien dalam menangani data berdimensi tinggi dan pola non-linier pada dataset ini.
+- **K-Nearest Neighbors (KNN)** mendekati performa SVM dengan akurasi 98.04%, menjadikannya pilihan yang kompetitif untuk klasifikasi pada dataset ini. Namun, KNN kurang efisien pada data besar dalam hal kecepatan prediksi.
+- **Random Forest** juga menghasilkan hasil yang baik, dengan akurasi 96.86%. Model ini sangat kuat dalam menangani variabilitas data dan robust terhadap outlier.
+- **Gradient Boosting** memberikan akurasi yang tinggi, namun sedikit lebih rendah dibandingkan SVM dan KNN. Dengan akurasi 95.36%, model ini menunjukkan stabilitas pada data kompleks, meskipun cenderung lebih lambat dalam proses pelatihan.
+- **Logistic Regression** sebagai model baseline memberikan akurasi 87.05%. Meskipun sederhana dan mudah diinterpretasikan, model ini tidak seoptimal model lain dalam menangani data yang lebih kompleks.
+
+### Catatan Visualisasi Akurasi
+
+Pada gambar plot hasil akurasi, hasil akurasi ditampilkan dalam bentuk yang dibulatkan untuk memudahkan interpretasi. Pembulatan akurasi ini memberikan gambaran umum performa setiap model secara ringkas dan memudahkan perbandingan visual di antara model.
+
+### Kesimpulan Benchmarking
+
+Dari hasil benchmarking ini, **Support Vector Machine (SVM)** dan **K-Nearest Neighbors (KNN)** berada di posisi teratas, dengan SVM sebagai pilihan model terbaik untuk digunakan pada dataset ini. **Random Forest** dan **Gradient Boosting** juga menunjukkan hasil yang memadai, namun mungkin memerlukan lebih banyak sumber daya komputasi.
 
 
 ![Gambar Plot Akurasi](https://github.com/Primadya/predictiveanalyticsdicoding/blob/main/image/gambar%203.png?raw=true)
