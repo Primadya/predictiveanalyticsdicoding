@@ -91,7 +91,7 @@ Untuk outliers, metode dropping berbasis Interquartile Range (IQR) digunakan, de
 
 $$IQR = Q_3 - Q_1$$
 
-Setelah menghapus outliers, jumlah data berkurang dari `8.000` menjadi `7.645`. Data dibagi menjadi data latih dan data uji dengan rasio 80:20 menggunakan fungsi *Train Test Split* dari library *sklearn.model_selection*, dengan random state sebesar 42. Normalisasi dilakukan menggunakan *MinMaxScaler* dari library *sklearn.preprocessing*.
+Setelah menghapus outliers, jumlah data berkurang dari `8.000` menjadi `7.645`.
 
 - **Distribusi Data**: Analisis univariat menunjukkan bahwa distribusi variabel numerik simetris dan mendekati normal setelah normalisasi. Untuk data kategorikal, distribusi kualitas _Good_ (4006) dan _Bad_ (3994) cukup seimbang.
   
@@ -158,12 +158,34 @@ Analisis ini memberikan wawasan tentang hubungan antar variabel yang dapat dieks
 ## Data Preparation
 Pada bagian ini dilakukan langkah-langkah untuk mempersiapkan data, termasuk proses data gathering, data assessing, dan data cleaning agar dataset siap digunakan dalam pemodelan.
 Tahapan Persiapan Data
-1. **Pengubahan Tipe Kolom dan Mapping Label:**
+1. **Menghapus Outlier Berdasarkan IQR:**
+   - Langkah pertama adalah menghilangkan outlier pada data numerik dengan menghitung kuartil pertama (Q1), kuartil ketiga (Q3), dan Interquartile Range (IQR). Data yang berada di luar rentang `(Q1 - 1.5 *    IQR)` dan `(Q3 + 1.5 * IQR)` dianggap sebagai outlier dan akan dihapus.
+   ```python
+   import pandas as pd
+
+   # Pastikan operasi hanya dilakukan pada kolom numerik
+   df_numeric = df.select_dtypes(include=[float, int])
+
+   # Menghitung Q1, Q3, dan IQR
+   Q1 = df_numeric.quantile(0.25)
+   Q3 = df_numeric.quantile(0.75)
+   IQR = Q3 - Q1
+
+   # Menghapus outlier berdasarkan IQR
+   df_numeric_clean = df_numeric[~((df_numeric < (Q1 - 1.5 * IQR)) | (df_numeric > (Q3 + 1.5 * IQR))).any(axis=1)]
+
+   # Menggabungkan kembali dengan kolom non-numerik (jika ada)
+   df = df.loc[df_numeric_clean.index]
+
+   # Menampilkan dataframe yang sudah bersih
+   print(df.head())
+   ```
+2. **Pengubahan Tipe Kolom dan Mapping Label:**
    - Kolom `Quality` diubah namanya menjadi `label`, lalu dilakukan pemetaan nilai pada kolom `label` agar data mudah diolah: nilai `'Good'` dipetakan menjadi `1` dan `'Bad'` menjadi `0`.
    ```python
    df['label'] = df['Quality'].map({'Good': 1, 'Bad': 0})
    df.head()
-2. **Pembagian Data (Train-Test Split):**
+3. **Pembagian Data (Train-Test Split):**
     Dataset dibagi menjadi fitur (X) dan label (y), dengan memisahkan kolom label dari fitur lainnya. Selanjutnya, data dibagi menjadi data latih dan data uji dengan rasio 80:20 menggunakan train_test_split dari sklearn.model_selection dan random state sebesar 42 untuk memastikan replikasi yang konsisten.
     ```python
     from sklearn.model_selection import train_test_split
@@ -175,7 +197,7 @@ Tahapan Persiapan Data
     print(f'Total data Uji: {len(X_test)}')
     ```
     
-3. **Normalisasi Data:**
+4. **Normalisasi Data:**
     Normalisasi diterapkan pada fitur X_train dan X_test menggunakan MinMaxScaler dari sklearn.preprocessing. Langkah ini dilakukan agar nilai setiap fitur berada pada rentang yang sama, yang akan membantu meningkatkan performa model saat pelatihan.
     ```python
     Salin kode
